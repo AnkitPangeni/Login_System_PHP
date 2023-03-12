@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup Form</title>
+   <link rel="stylesheet" href="signup_style.css">
+<script src="signup_script.js"></script>
+  </head>
+
+  <body>
+    <form action="signup_success.php" method="POST" autocomplete="off">
+      
+        <h2>Sign up Portal</h2>
+      <p>
+    Note:
+    <ul>
+     <li>Name shouldn't contain any number or symbol </li>
+      <li> Username length should be at least 4 </li>
+      <li>Age should be between 8 & 60 </li>
+      <li>Phone number must be of 10 digits </li>
+      <li> Password length should be at least 6, should start with a letter and end with a digit </li> 
+      
+        
+    </ul>
+    </p>
+      First name <input type="text" id="fname" name="fname"/> <br>
+
+      Last name <input type="text" id="lname" name="lname" /><br />
+      Username <input type="text" id="username" name="username" /><br />
+      Email <input type="text" id="email" name="email"/><br />
+      Password <input type="password" id="password" name="password" />  
+      <br />
+      Age<input type="number" id="age" name="age" />  <br /> 
+      
+       Gender:<input type="radio" name="gender" id="male" value="male"  />Male
+      <input type="radio" name="gender" id="female" value="female" />Female
+      <input type="radio" name="gender" id="others" value="others" />Others <br />
+
+
+
+<br>
+      Phone number<input type="text" id="number" name="number" />  <br />
+      
+
+     
+
+      <input type= "submit" value="Register" onclick="return validate()" name="register">
+      <input type= "reset">
+
+      
+    </form>
+    
+
+    
+  </body>
+</html>
