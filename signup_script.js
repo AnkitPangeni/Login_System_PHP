@@ -87,10 +87,13 @@ function radiovalidate() {
 function checkboxvalidate(){
 
   
-    alert("Your form has been submitted");
+    //alert("Your form has been submitted");
           return true;
     
   }
+
+
+  
 
 
 // && vaneko tyo madhye euta true or false, || vaneko sabai true or false

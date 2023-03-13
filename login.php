@@ -16,7 +16,7 @@
         <button class="btnn" name="button" onclick="return validate()"><a href="#">Login</a></button>
 
         <p class="link">Don't have an account?<br>
-        <a href="signup.html">Sign up </a> here</a></p>
+        <a href="signup.php">Sign up </a> here</a></p>
         <p id="success"></p>
        
 

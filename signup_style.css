@@ -38,7 +38,7 @@
   form {
     max-width: 500px;
     margin: 0 auto;
-    background: linear-gradient(to top, rgba(0,0,0,0.8)50%,rgba(0,0,0,0.8)50%);
+    background: linear-gradient(to top, rgba(21, 21, 21, 0.8)50%,rgba(21, 21, 21, 0.8)50%);
     padding: 15px;
     border-radius: 10px;
     
@@ -50,7 +50,7 @@
   input[type="number"],
   input[type="password"] {
     background: transparent !important;
-    border-bottom: 1px solid #ff7200;
+    border-bottom: 1px solid #00ff66;
     border-top: none;
     border-right: none;
     border-left: none;
@@ -62,7 +62,7 @@
 
   
   input[type="submit"] {
-    background-color: #4CAF50;
+    background-color: #00ff66;
     color: white;
     border: none;
     padding: 8px 16px;
@@ -102,4 +102,7 @@
       max-width: 90%;
     }
   }
+  
+
+ 
   
