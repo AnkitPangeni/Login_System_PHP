@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -46,9 +51,9 @@ function validate() {
 
     function loginsuccess()
     {
-      var txt ="Login Successful..!";
+      var txt ="Login Successful. Redirecting...";
       document.getElementById("success").innerHTML=txt;
-      window.location.href = "display.html";
+     // window.location.href = "display.html";
     }
  
     function loginfailed()
@@ -75,7 +80,7 @@ if(isset($_POST['button']))
  $username = $_POST['username'];
  $password = $_POST['password'];
 
- $query= "SELECT * FROM signuptable WHERE (username = '$username' OR email ='$username')  && password = '$password' ";
+ $query= "SELECT * FROM signuptable WHERE (username = '$username' OR email ='$username')  && binary password = '$password' ";
  $data = mysqli_query($conn, $query);
 
  $total = mysqli_num_rows($data);
@@ -83,13 +88,16 @@ if(isset($_POST['button']))
 
  if($total == 1){
 
+  $_SESSION['username']=$username;
+  $_SESSION['password']=$password;
+
+
   ?>
   
   <script>
   loginsuccess();
   </script>
-
-
+  <meta http-equiv="refresh" content="1; url=display1.php">    
 <?php
  //header('location: display.html');   //use this if you want to display the page after login directly from php
  }
