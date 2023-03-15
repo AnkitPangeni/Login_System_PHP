@@ -134,7 +134,7 @@ else {
 <script>
 function confirmdelete()
 {
-  return confirm('Are you sure you want to delete your record?');  
+  return confirm('Are you sure you want to delete your record ?');  
 }
 
 function confirmlogout()
