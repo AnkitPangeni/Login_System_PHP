@@ -12,8 +12,31 @@
     }
 
 
-    input{
-        background-color: black;
+    #edit{
+        background-color: green;
+        font-size: 15px;
+        color: white;
+        border: 0;
+        border-radius: 10px;
+        height: 35px;
+        width:60px;
+        cursor: pointer;
+        
+      }
+      #delete{
+        background-color: red;
+        font-size: 15px;
+        color: white;
+        border: 0;
+        border-radius: 10px;
+        height: 35px;
+        width:60px;
+        cursor: pointer;
+        
+      }
+
+      #logout{
+        background-color: #FFB612;
         font-size: 15px;
         color: white;
         border: 0;
@@ -48,8 +71,7 @@ else {
   $username = $_SESSION["username"];
   $query = "SELECT * FROM signuptable WHERE (username = '$username' OR email ='$username')"; // this is because user may enter email or username as username
   $data = mysqli_query($conn,$query);
-
-$total = mysqli_num_rows($data);  // to store the number of records in table
+  $total = mysqli_num_rows($data);  // to store the number of records in table
 
 if($total!=0) 
 {
@@ -58,7 +80,7 @@ if($total!=0)
 
     <h1 align="center">
     <?php
-      echo "Welcome ". $_SESSION['username'].".";
+      echo "Welcome ". $_SESSION['username']." !";
           ?> </h1>
    <h2 align="center"> Your Records </h2>
 <table align="center" width="90%">
@@ -76,10 +98,10 @@ if($total!=0)
 </tr>   
 
     <?php
-   while($result = mysqli_fetch_assoc($data))
+   while($result = mysqli_fetch_assoc($data))   // result vitra sql table ko title harr lekhne
    {
     echo"<tr>
-<td>".$result['id']." </td>    
+<td>".$result['id']." </td>     
 <td>".$result['fname']." </td>    
 <td>".$result['lname']." </td>  
 <td>".$result['username']." </td>  
@@ -91,10 +113,15 @@ if($total!=0)
 
 
 </tr>
+</table>"
 
-    
-    
-    ";
+;
+
+    echo "<br><center>
+    <a href='edit.php?id=$result[id]'> <input type='submit' value='Edit' id='edit'></a>
+    <a href='delete.php?id=$result[id]'> <input type='submit' value='Delete' id='delete'></a>
+    <a href='logout.php'> <input type='submit' value='logout' id='logout'></a>
+    </center>";
    }
 }
 else {
@@ -103,12 +130,6 @@ else {
 }
 ?>
 
-</table>
-<br>
-
-<center>
-<a href="logout.php"> <input type="submit" value="logout"></a>
-</center>
 
 </body>
 

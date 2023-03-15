@@ -75,7 +75,7 @@ if(isset($_POST['register']))
   $number = $_POST['number'];
 
 
-  $checkuser = "SELECT * from signuptable WHERE username = '$username' OR email ='$email' ";
+    $checkuser = "SELECT * from signuptable WHERE username = '$username' OR email ='$email' ";
     $data = mysqli_query($conn,$checkuser);
     $total = mysqli_num_rows($data);
     if($total>0){

@@ -96,4 +96,7 @@ function checkboxvalidate(){
   
 
 
+  
+
+
 // && vaneko tyo madhye euta true or false, || vaneko sabai true or false
