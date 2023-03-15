@@ -6,7 +6,7 @@ $query="DELETE FROM signuptable WHERE id='$id'";
 $data=mysqli_query($conn,$query);
 
 if($data){
-    echo "Record Deleted!";
+    echo "Record Deleted Successfully!";
     header('location: logout.php');
 
 }
