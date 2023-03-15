@@ -119,8 +119,8 @@ if($total!=0)
 
     echo "<br><center>
     <a href='edit.php?id=$result[id]'> <input type='submit' value='Edit' id='edit'></a>
-    <a href='delete.php?id=$result[id]'> <input type='submit' value='Delete' id='delete'></a>
-    <a href='logout.php'> <input type='submit' value='logout' id='logout'></a>
+    <a href='delete.php?id=$result[id]'> <input type='submit' value='Delete' id='delete' onclick='return confirmdelete()'></a>
+    <a href='logout.php'> <input type='submit' value='logout' id='logout' onclick='return confirmlogout()'></a>
     </center>";
    }
 }
@@ -130,6 +130,20 @@ else {
 }
 ?>
 
+
+<script>
+function confirmdelete()
+{
+  return confirm('Are you sure you want to delete your record?');  
+}
+
+function confirmlogout()
+{
+  return confirm('Are you sure you want to logout?');  
+}
+
+
+</script>
 
 </body>
 
