@@ -7,7 +7,11 @@ $data=mysqli_query($conn,$query);
 
 if($data){
     echo "Record Deleted Successfully!";
-    header('location: logout.php');
+   ?>
+<script>
+    window.location.href='logout.php';
+</script>
+   <?php
 
 }
 
