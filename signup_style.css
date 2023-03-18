@@ -95,6 +95,12 @@
   }
   
   
+  input[type="file"] {
+  
+    border-radius: 10px;
+   
+   
+  }
   
   /* Set media queries */
   @media screen and (max-width: 768px) {

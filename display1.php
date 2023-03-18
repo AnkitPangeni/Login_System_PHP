@@ -68,6 +68,20 @@ body{
   padding: 20px;
   a
 }
+.image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 10px;
+  border: 4px solid #3f51b5;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 .heading {
   font-size: 25px;
@@ -134,6 +148,10 @@ if($total!=0)
     echo"
 <div class='container'>
   <div class='heading'>Your Information</div>
+  <center>
+  <div class='image'>
+  <img src= '".$result['userimg']."' height='200px' width='200px'>
+  </div></center>
   <div class='user-info'>
   <div class='row'
   

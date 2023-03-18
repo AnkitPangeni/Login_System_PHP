@@ -9,7 +9,7 @@
   </head>
 
   <body>
-    <form  action="#" method="POST" autocomplete="off">
+    <form  action="#" method="POST" autocomplete="off" enctype="multipart/form-data">
       
         <h2>Sign up Portal</h2>
       <p>
@@ -43,10 +43,11 @@
 
 
 <br>
-      Phone number<input type="text" id="number" name="number" />  <br />
+      Phone number<input type="text" id="number" name="number" />  <br /> <br>
       
 
-     
+      Image <input type="file" name="uploadfile" > <br> <br>
+
 
       <input type= "submit" value="Register" onclick="return validate()" name="register">
       <input type= "reset">
@@ -65,6 +66,7 @@
 include("connection.php");
 if(isset($_POST['register']))
 {
+  
   $fname = $_POST['fname'];
   $lname = $_POST['lname'];
   $username = $_POST['username'];
@@ -73,6 +75,14 @@ if(isset($_POST['register']))
   $age  = $_POST['age'];
   $gender = $_POST['gender'];
   $number = $_POST['number'];
+
+
+  $filename =$_FILES["uploadfile"]["name"];
+$tempname =$_FILES["uploadfile"]["tmp_name"];
+$folder = "userimages/".$filename;
+//echo $folder;
+
+move_uploaded_file($tempname,$folder);
 
 
     $checkuser = "SELECT * from signuptable WHERE username = '$username' OR email ='$email' ";
@@ -91,7 +101,7 @@ if(isset($_POST['register']))
     }
     else {
 
-  $query = "INSERT INTO signuptable (fname,lname,username,email,password,age,gender,number) VALUES('$fname','$lname','$username','$email','$password','$age','$gender','$number')";
+  $query = "INSERT INTO signuptable (fname,lname,username,email,password,age,gender,number,userimg) VALUES('$fname','$lname','$username','$email','$password','$age','$gender','$number','$folder')";
   $data = mysqli_query($conn,$query);
 
   if($data)
