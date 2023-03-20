@@ -61,12 +61,12 @@ body{
       .container {
   width: 75%;
   max-width: 600px;
-  margin: 70px auto;
+  margin: 40px auto;
   background-color: rgba(255, 255, 255, 0.4);
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
   border-radius: 15px;
   padding: 20px;
-  a
+  
 }
 .image {
   width: 120px;
@@ -171,10 +171,7 @@ if($total!=0)
       <div class='label'>Email:</div>
       <div class='value'>$result[email]</div>
     </div>
-    <div class='row'>
-      <div class='label'>Password:</div>
-      <div class='value'>$result[password]</div>
-    </div>
+    
     <div class='row'>
       <div class='label'>Age:</div>
       <div class='value'>$result[age]</div>

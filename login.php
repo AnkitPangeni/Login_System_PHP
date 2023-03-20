@@ -82,6 +82,7 @@ if(isset($_POST['button']))
 
  $query= "SELECT * FROM signuptable WHERE (username = '$username' OR email ='$username')  && binary password = '$password' ";
  $data = mysqli_query($conn, $query);
+ $result = mysqli_fetch_assoc($data);
 
  $total = mysqli_num_rows($data);
  //echo $total;
@@ -90,7 +91,10 @@ if(isset($_POST['button']))
 
   $_SESSION['username']=$username;
   $_SESSION['password']=$password;
+  $_SESSION['id']=$result['id'];
 
+
+echo $_SESSION['id'];
 
   ?>
   

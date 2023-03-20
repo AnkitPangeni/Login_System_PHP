@@ -1,10 +1,20 @@
 <?php 
+$id= $_GET['id'];
 
 session_start();
+
 if (!isset($_SESSION["username"])) {
     header("location: login.php"); // Redirect the user to the login page if they are not logged in
     exit;
 }
+
+
+
+else if($_SESSION["id"]!=$id){
+ echo "Error 404" ;
+}
+
+
 else {
     ?>
 
@@ -30,7 +40,9 @@ $result = mysqli_fetch_assoc($data);
   </head>
 
   <body>
-    <form  action="#" method="POST" autocomplete="off">
+  <!--  <form  action="#" method="POST" autocomplete="off"  enctype="multipart/form-data"> -->
+    <form  action="#" method="POST" autocomplete="off"  enctype="multipart/form-data">
+
       
         <h2>Edit Your Details</h2>
       <p>
@@ -74,6 +86,7 @@ $result = mysqli_fetch_assoc($data);
 <br>
       Phone number<input type="text" value="<?php echo $result['number']; ?>" id="number" name="number" />  <br />
       
+      <!--Image <input type="file" value="<?php echo $result['userimg']; ?>" name="uploadfile" > <br> <br> -->
 
      
 
@@ -117,11 +130,18 @@ if(isset($_POST['update']))
   $gender = $_POST['gender'];
   $number = $_POST['number'];
 
+$filename =$_FILES["uploadfile"]["name"];
+$tempname =$_FILES["uploadfile"]["tmp_name"];
+$folder = "userimages/".$filename;
+//echo $folder;
 
+move_uploaded_file($tempname,$folder);
     
 
-  $query = "UPDATE signuptable SET fname='$fname',lname='$lname',username='$username',email='$email',password='$password',age='$age',gender='$gender',number='$number' 
-  WHERE id='$id'";
+ // $query = "UPDATE signuptable SET fname='$fname',lname='$lname',username='$username',email='$email',password='$password',age='$age',gender='$gender',number='$number',userimg='$folder'
+ // WHERE id='$id'";
+ $query = "UPDATE signuptable SET fname='$fname',lname='$lname',username='$username',email='$email',password='$password',age='$age',gender='$gender',number='$number'
+ WHERE id='$id'";
   
   $data = mysqli_query($conn,$query);
 
