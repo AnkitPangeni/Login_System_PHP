@@ -11,9 +11,35 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login Form</title>
     <link rel="stylesheet" href="login_style.css">
+    <link rel="stylesheet" href="homepage_style.css">
+
   </head>
   <body>
-    <form action="login.php" method="post" autocomplete="off">
+  <section class="header">
+      <nav>
+        <a href="index.html"><img src="logo.png" alt="" /></a>
+        <div class="nav-links">
+          <ul>
+            <li>
+              <a href="index.html">HOME</a>
+            </li>
+            <li>
+              <a href="about.html">ABOUT</a>
+            </li>
+            <li>
+              <a href="course.html">COURSE</a>
+            </li>
+            <li>
+              <a href="blog.html">BLOG</a>
+            </li>
+            <li>
+              <a href="contact.html">CONTACT</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <form action="login.php" method="post" autocomplete="off">
     <div class="form">
         <h2>Login Portal</h2>
         <input type="text" name="username" placeholder="Username or Email" id="username" name="username">
@@ -28,6 +54,11 @@ session_start();
 
         </div>
     </form>
+      
+
+    </div>
+    </section>
+    
 
 
         <script>           
@@ -94,7 +125,6 @@ if(isset($_POST['button']))
   $_SESSION['id']=$result['id'];
 
 
-echo $_SESSION['id'];
 
   ?>
   
